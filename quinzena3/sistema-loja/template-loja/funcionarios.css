@@ -1,0 +1,29 @@
+body {
+    background-color: rgba(182, 210, 248, 0.733);
+    /* text-align: center; */
+    color: rgb(5, 72, 83); 
+}
+
+.cabecalho-funcionarios {
+    background-color: rgba(105, 165, 248, 0.575);
+    padding: 1%;
+    text-align: center;
+}
+
+.passador-funcionarios {
+    color: rgb(5, 72, 83);
+    text-align: center;
+    padding-top: 1%;
+}
+a {
+padding-left: 5%;
+}
+/* ol, li {
+    text-align: center;
+} */
+h2 {
+    margin-left: 2%;
+}
+ol {
+    margin-left: 2%;
+}

@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* CONFIG HEADER */
+
+h2, a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background-color: rgb(4, 153, 146);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    grid-column: 1/-1;
+}
+
+.icone-texto {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.icone {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+#input-de-pesquisa {
+    height: 20px;
+    width: 200px ;
+}
+
+#button-header {
+    height: 30px;
+    width: 60px;
+    border-radius: 40%;
+    margin-left: 10px;
+}
+
+/* CONFIG MAIN */
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-columns: 300px 1fr;
+}
+
+main {
+    padding-left: 17vw;
+    padding-top: 7vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+}
+
+.video-card {
+    margin: 5px;
+    height: 30vh;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 5px darkgray;
+}
+
+/* CONFIG FOOTER */
+
+footer {
+    margin-top: 20px;
+    background-color: rgb(4, 153, 146);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/-1;
+}
+
+/* PÁGINA SECUNDÁRIA */
+
+.body2 {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-columns: 200px 1fr;
+}
+
+.main-page-two {
+    height: 100vh;
+    width: 95vw;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);  
+}
+
+.video-secundario {
+    width: 80%;
+}

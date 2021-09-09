@@ -1,0 +1,26 @@
+body {
+    background-color: rgba(182, 210, 248, 0.733);
+}
+
+.cabecalho {
+    text-align: center;
+    background-color: rgba(105, 165, 248, 0.575);
+    color: rgb(5, 72, 83);
+    padding: 5%;
+}
+.passador {
+    color: rgb(5, 72, 83);
+    text-align: center;
+    padding-top: 1%;
+}
+a {
+    padding-left: 5%;
+}
+.quem-somos {
+    color: rgb(5, 72, 83);
+    text-align: center;
+}
+.redes-sociais {
+    text-align: center;
+    color: rgb(5, 72, 83);
+}

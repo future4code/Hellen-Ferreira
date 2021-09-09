@@ -1,0 +1,25 @@
+body {
+    background-color: rgba(182, 210, 248, 0.733);
+    text-align: center;
+    color: rgb(5, 72, 83); 
+}
+
+.cabecalho-add-produto {
+    background-color: rgba(105, 165, 248, 0.575);
+    padding: 1%;
+}
+
+.passador-add-produto {
+    color: rgb(5, 72, 83);
+    padding-top: 1%;
+}
+a {
+padding-left: 5%;
+}
+
+button {
+    color: rgb(5, 72, 83);
+    width: 10%;
+    height: 5%;
+    background-color: rgba(255, 255, 255, 0.1);
+}

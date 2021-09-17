@@ -1,0 +1,25 @@
+.icon-texto-email {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.icon-texto-end {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.icon-texto-email > img {
+    height: 30px;
+}
+
+.icon-texto-end > img {
+    height: 30px;
+}

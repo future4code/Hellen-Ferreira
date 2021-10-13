@@ -140,21 +140,33 @@ class App extends React.Component {
       });
   };
 
-  getUsers = () => {
+  getUsers = async () => {
     const url =
       "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
-    axios
-      .get(url, {
+
+    try {
+      const response = await axios.get(url, {
         headers: {
           Authorization: "hellen-ferreira-banu",
         },
-      })
-      .then((resposta) => {
-        this.setState({ usuarios: resposta.data });
-      })
-      .catch((error) => {
-        console.log(error);
       });
+      this.setState({ usuarios: response.data });
+    } catch (error) {
+      console.log(error);
+    }
+
+    //   axios
+    //     .get(url, {
+    //       headers: {
+    //         Authorization: "hellen-ferreira-banu",
+    //       },
+    //     })
+    //     .then((resposta) => {
+    //       this.setState({ usuarios: resposta.data });
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
   };
 
   deleteUser = (id) => {

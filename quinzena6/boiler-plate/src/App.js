@@ -57,6 +57,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const tarefasLS = JSON.parse(localStorage.getItem("tarefa"));
+    if(tarefasLS)
     this.setState({ tarefas: tarefasLS });
   }
 

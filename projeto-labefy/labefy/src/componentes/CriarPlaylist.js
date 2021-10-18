@@ -1,10 +1,16 @@
 import React from "react";
 import axios from "axios";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 
 const HeaderHome = styled.div`
+  background-image: linear-gradient(
+    to top,
+    rgba(30, 215, 96, 0.2),
+    rgba(30, 215, 96, 0.5),
+    rgba(30, 215, 96, 0.7)
+  );
   height: 15vh;
-  background-color: rgba(30, 215, 96, 0.5);
+  background-color: #eeedee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +23,6 @@ const ImgLogo = styled.img`
 const ButtonHeader = styled.button`
   width: 8vw;
   height: 6vh;
-  margin-bottom: 200px;
   margin-right: 20px;
   border-radius: 20px;
   background-color: transparent;
@@ -30,17 +35,18 @@ const ButtonHeader = styled.button`
     transform: scale(0.9);
   }
 `;
-const ImgMain = styled.img`
-  width: 27vw;
-  height: 60vh;
-  border-radius: 400px;
-`;
 
 const MainPrincipal = styled.div`
-  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(30, 215, 96, 0.2),
+    rgba(30, 215, 96, 0.5),
+    rgba(30, 215, 96, 0.7)
+  );
+  height: 70vh;
   background-color: #eeedee;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -49,10 +55,20 @@ const ButtonEInput = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 30px;
+  border-radius: 20px;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30px;
 `;
 
 const InputGet = styled.input`
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  margin-top: 20px;
   width: 18vw;
   height: 4vh;
   border-top: none;
@@ -60,13 +76,15 @@ const InputGet = styled.input`
   border-right: none;
   border-bottom: 1px solid black;
   background-color: transparent;
+
+  ::placeholder {
+    color: black;
+  }
 `;
 
 const ButtonCriar = styled.button`
   width: 8vw;
   height: 6vh;
-  margin-left: 140px;
-  margin-bottom: 10px;
   margin-right: 20px;
   border-radius: 20px;
   background-color: transparent;
@@ -80,16 +98,15 @@ const ButtonCriar = styled.button`
   }
 `;
 
-const ImgEText = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const FooterHome = styled.footer`
+  background-image: linear-gradient(
+    to top,
+    rgba(30, 215, 96, 0.2),
+    rgba(30, 215, 96, 0.5),
+    rgba(30, 215, 96, 0.7)
+  );
   height: 15vh;
-  background-color: rgba(30, 215, 96, 0.5);
+  background-color: #eeedee;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,24 +149,21 @@ class CriarPlaylist extends React.Component {
           <ImgLogo src="/img/spotify-logo-preto.png" />
         </HeaderHome>
         <MainPrincipal>
-          <ImgEText>
-            <h3>Escutar muda tudo!</h3>
-            <ImgMain src="/img/photo1.jpeg" />
-            <h5>Ouça suas músicas preferidas!</h5>
-          </ImgEText>
           <ButtonEInput>
-            <ButtonHeader onClick={this.props.irParaLista}>
-              Playlists →
-            </ButtonHeader>
-            <h3>Criar nova playlist:</h3>
+            <h3>Crie sua playlist:</h3>
             <InputGet
               placeholder="Nome da Playlist"
               value={this.state.nome}
               onChange={this.onChangeInputNome}
             />
-            <ButtonCriar onClick={this.postPlaylist}>
-              Criar playlist
-            </ButtonCriar>
+            <Buttons>
+              <ButtonCriar onClick={this.postPlaylist}>
+                Criar playlist
+              </ButtonCriar>
+              <ButtonHeader onClick={this.props.irParaLista}>
+                Playlists →
+              </ButtonHeader>
+            </Buttons>
           </ButtonEInput>
         </MainPrincipal>
 

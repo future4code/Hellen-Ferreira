@@ -3,15 +3,10 @@ import React from "react";
 import styled from "styled-components";
 
 const HeaderHome = styled.div`
-  background-image: linear-gradient(
-    to top,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
   height: 15vh;
-  background-color: #eeedee;
+  background-color: rgba(0, 0, 0, 1);
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   align-items: center;
 `;
@@ -20,26 +15,51 @@ const Inputs = styled.input`
   margin-left: 20px;
   width: 10vw;
   height: 4vh;
+  color: #eeeeee;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #eeeeee;
   background-color: transparent;
 
   ::placeholder {
-    color: black;
+    color: #eeeeee;
   }
 `;
 
 const Buttons = styled.button`
   width: 11vw;
   height: 6vh;
-  margin-left: 20px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-bottom: 40px;
   border-radius: 20px;
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid #1ed760;
+  color: #1ed760;
+  font-size: 15px;
+  font-weight: bolder;
+
+  :hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+`;
+
+const Buttons2 = styled.button`
+  width: 11vw;
+  height: 6vh;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  background-color: #1ed760;
+  border: 1px solid #1ed760;
   color: black;
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: bolder;
+
   :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -48,32 +68,31 @@ const Buttons = styled.button`
 `;
 
 const FooterHome = styled.footer`
-  background-image: linear-gradient(
-    to top,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
-  height: 15vh;
-  background-color: #eeedee;
+  height: 12vh;
+  background-color: rgba(0, 0, 0, 1);
   display: flex;
+  color: #eeeeee;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 const MainPrincipal = styled.div`
-  background-image: linear-gradient(
-    to bottom,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
-  min-height: 70vh;
-  background-color: #eeedee;
+  min-height: 73vh;
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
+  color: #eeeeee;
+`;
+
+const Body = styled.body`
+  min-height: 100vh;
+  background-image: url(img/colagem.jpg);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: 1500px;
+  background-attachment: fixed;
 `;
 
 const DivMusic = styled.div`
@@ -85,15 +104,24 @@ const DivMusic = styled.div`
   justify-content: space-evenly;
   background-image: transparent;
   height: 10vh;
-  color: black;
+  color: #eeeeee;
 `;
 
 const Audio = styled.div`
-  width: 20vw;
-  color: rgba(30, 215, 96, 0.5);
+  width: 21%;
+  height: 14%;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: #eee;
+  box-shadow: 0px 0px 5px #eee;
+  color: red;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const TagAudio = styled.audio`
+  width: 100%;
 `;
 class Detalhes extends React.Component {
   state = {
@@ -165,13 +193,13 @@ class Detalhes extends React.Component {
           <h5>{p.name}</h5>
           <h5>{p.artist}</h5>
           <Audio>
-            <audio controls src={p.url} />
+            <TagAudio controls src={p.url} />
           </Audio>
         </DivMusic>
       );
     });
     return (
-      <div>
+      <Body>
         <HeaderHome>
           <div>
             <Inputs
@@ -191,7 +219,7 @@ class Detalhes extends React.Component {
             />
           </div>
           <div>
-            <Buttons onClick={this.postTrack}>Adicionar música</Buttons>
+            <Buttons2 onClick={this.postTrack}>Adicionar música</Buttons2>
             <Buttons onClick={this.props.voltaPagina}>Ver playlists</Buttons>
           </div>
         </HeaderHome>
@@ -200,7 +228,7 @@ class Detalhes extends React.Component {
         <FooterHome>
           <h3>By Hellen Barbosa</h3>
         </FooterHome>
-      </div>
+      </Body>
     );
   }
 }

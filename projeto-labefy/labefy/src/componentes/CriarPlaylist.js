@@ -3,14 +3,9 @@ import axios from "axios";
 import styled, { withTheme } from "styled-components";
 
 const HeaderHome = styled.div`
-  background-image: linear-gradient(
-    to top,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
   height: 15vh;
-  background-color: #eeedee;
+
+  background-color: rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,9 +21,10 @@ const ButtonHeader = styled.button`
   margin-right: 20px;
   border-radius: 20px;
   background-color: transparent;
-  border: 1px solid black;
-  color: black;
-  font-size: 17px;
+  border: 1px solid #1ed760;
+  color: #1ed760;
+  font-size: 15px;
+  font-weight: bolder;
   :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -36,18 +32,23 @@ const ButtonHeader = styled.button`
   }
 `;
 
+const Body = styled.body`
+  min-height: 100vh;
+  background-image: url(img/colagem.jpg);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: 1500px;
+  background-attachment: fixed;
+`;
+
 const MainPrincipal = styled.div`
-  background-image: linear-gradient(
-    to bottom,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
-  height: 70vh;
-  background-color: #eeedee;
+  min-height: 73vh;
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #eeeeee;
 `;
 
 const ButtonEInput = styled.div`
@@ -71,14 +72,15 @@ const InputGet = styled.input`
   margin-top: 20px;
   width: 18vw;
   height: 4vh;
+  color: #eeeeee;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #eeeeee;
   background-color: transparent;
 
   ::placeholder {
-    color: black;
+    color: #eeeeee;
   }
 `;
 
@@ -87,10 +89,11 @@ const ButtonCriar = styled.button`
   height: 6vh;
   margin-right: 20px;
   border-radius: 20px;
-  background-color: transparent;
-  border: 1px solid black;
+  background-color: #1ed760;
+  border: none;
   color: black;
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: bolder;
   :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -99,15 +102,10 @@ const ButtonCriar = styled.button`
 `;
 
 const FooterHome = styled.footer`
-  background-image: linear-gradient(
-    to top,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
-  height: 15vh;
-  background-color: #eeedee;
+  height: 12vh;
+  background-color: rgba(0, 0, 0, 1);
   display: flex;
+  color: #eeeeee;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -144,9 +142,9 @@ class CriarPlaylist extends React.Component {
   };
   render() {
     return (
-      <div>
+      <Body>
         <HeaderHome>
-          <ImgLogo src="/img/spotify-logo-preto.png" />
+          <ImgLogo src="/img/spotify-logo.png" />
         </HeaderHome>
         <MainPrincipal>
           <ButtonEInput>
@@ -170,7 +168,7 @@ class CriarPlaylist extends React.Component {
         <FooterHome>
           <h3>By Hellen Barbosa</h3>
         </FooterHome>
-      </div>
+      </Body>
     );
   }
 }

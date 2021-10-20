@@ -4,17 +4,13 @@ import Detalhes from "./Detalhes";
 import styled from "styled-components";
 
 const HeaderHome = styled.div`
-  background-image: linear-gradient(
-    to top,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
   height: 15vh;
-  background-color: #eeedee;
+
+  background-color: rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: static;
 `;
 
 const ImgLogo = styled.img`
@@ -22,44 +18,45 @@ const ImgLogo = styled.img`
 `;
 
 const FooterHome = styled.footer`
-  background-image: linear-gradient(
-    to top,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
-  height: 15vh;
-  background-color: #eeedee;
+  height: 12vh;
+  background-color: rgba(0, 0, 0, 1);
   display: flex;
+  color: #eeeeee;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
 const MainPrincipal = styled.div`
-  background-image: linear-gradient(
-    to bottom,
-    rgba(30, 215, 96, 0.2),
-    rgba(30, 215, 96, 0.5),
-    rgba(30, 215, 96, 0.7)
-  );
-  min-height: 70vh;
-  background-color: #eeedee;
+  min-height: 73vh;
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #eeeeee;
+`;
+
+const Body = styled.body`
+  min-height: 100vh;
+  background-image: url(img/colagem.jpg);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: 1500px;
+  background-attachment: fixed;
 `;
 
 const ButtonNovaP = styled.button`
   width: 10vw;
   height: 6vh;
   margin-top: 40px;
+  margin-bottom: 40px;
   border-radius: 20px;
   background-color: transparent;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid #1ed760;
+  color: #1ed760;
   font-size: 17px;
+  font-weight: bolder;
   :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -75,14 +72,16 @@ const Buttons = styled.div`
 `;
 
 const BotaoDelete = styled.button`
-  width: 3vw;
+  width: 2vw;
   height: 4vh;
   margin-left: 10px;
   border-radius: 20px;
   background-color: transparent;
-  border: 1px solid black;
-  color: black;
-  font-size: 17px;
+  border: 1px solid #eeeeee;
+  font-weight: lighter;
+  color: #eeeeee;
+  font-size: 15px;
+
   :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -91,13 +90,14 @@ const BotaoDelete = styled.button`
 `;
 
 const BotaoDetalhes = styled.button`
-  width: 8vw;
+  width: 6vw;
   height: 4vh;
   border-radius: 20px;
   background-color: transparent;
-  border: 1px solid black;
-  color: black;
-  font-size: 17px;
+  border: 1px solid #eeeeee;
+  font-weight: lighter;
+  color: #eeeeee;
+  font-size: 15px;
   :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
@@ -189,9 +189,9 @@ class ListaDePlaylists extends React.Component {
     });
     console.log(listaPlaylist);
     return (
-      <div>
+      <Body>
         <HeaderHome>
-          <ImgLogo src="/img/spotify-logo-preto.png" />
+          <ImgLogo src="/img/spotify-logo.png" />
         </HeaderHome>
         <MainPrincipal>
           <h3>Aqui estão suas playlists!</h3>
@@ -203,9 +203,9 @@ class ListaDePlaylists extends React.Component {
           </ButtonNovaP>
         </MainPrincipal>
         <FooterHome>
-          <h3>By Hellen Barbosa</h3>
+          <h4>By Hellen Barbosa</h4>
         </FooterHome>
-      </div>
+      </Body>
     );
   }
 }

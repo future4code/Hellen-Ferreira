@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useHistory } from "react-router";
+import { BASE_URL } from "../constants/URL";
 import useForm from "../hook/UseForm";
 
 const LoginPage = () => {
@@ -8,17 +10,25 @@ const LoginPage = () => {
     password: "",
   });
 
-  const goToAdminHomePage = () => {
-    history.push("/admin/trips/list");
-  };
-
   const fazerLogin = (event) => {
     event.preventDefault();
+    const body = {
+      email: form.email,
+      password: form.password,
+    };
+    axios
+      .post(`${BASE_URL}/login`, body)
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        history.push("/admin/trips/list");
+      })
+      .catch((error) => {
+        alert("Usuário ou senha incorretos!");
+      });
     cleanFields();
   };
-
   const goBack = () => {
-    history.goBack();
+    history.push("/");
   };
 
   return (
@@ -37,12 +47,13 @@ const LoginPage = () => {
           value={form.password}
           onChange={onChange}
           placeholder={"Senha"}
+          type="password"
           required
           pattern={"^.{3,}"}
           title={"Sua senha deve ter no mínimo 3 caracteres"}
         />
 
-        <button onClick={goToAdminHomePage}>Entrar</button>
+        <button>Entrar</button>
       </form>
 
       <button onClick={goBack}>Voltar</button>

@@ -8,7 +8,12 @@ const HomePage = () => {
     history.push("/trips/list");
   };
   const goToLogin = () => {
-    history.push("/login");
+    const token = localStorage.getItem("token");
+    if (token === null) {
+      history.push("/login");
+    } else {
+      history.push("/admin/trips/list");
+    }
   };
 
   return (

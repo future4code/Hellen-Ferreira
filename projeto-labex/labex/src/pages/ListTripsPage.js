@@ -1,11 +1,10 @@
 import { useHistory } from "react-router-dom";
 import { BASE_URL } from "../constants/URL";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import useRequestData from "../hook/useRequestData";
 
 const ListTripsPage = () => {
   const history = useHistory();
-  const [listTrips, setListTrips] = useState([]);
+  const [listTrips] = useRequestData(`${BASE_URL}/trips`);
 
   const goToApplicationFormPage = () => {
     history.push("/trips/application");
@@ -15,24 +14,9 @@ const ListTripsPage = () => {
     history.goBack();
   };
 
-  const getTrips = () => {
-    axios
-      .get(`${BASE_URL}/trips`)
-      .then((response) => {
-        setListTrips(response.data.trips);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getTrips();
-  }, []);
-
   return (
     <div>
-      {listTrips.map((t) => {
+      {listTrips?.trips.map((t) => {
         return (
           <div>
             <p key={t.id}>{t.name}</p>

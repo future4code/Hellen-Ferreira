@@ -4,10 +4,11 @@ import { countries } from "../constants/countries";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../constants/URL";
+import useRequestData from "../hook/useRequestData";
 
 const ApplicationFormPage = () => {
   const history = useHistory();
-  const [listTrips, setListTrips] = useState([]);
+  const [listTrips] = useRequestData(`${BASE_URL}/trips`);
   const { form, onChange, cleanFields } = useForm({
     trip: "",
     name: "",
@@ -43,28 +44,13 @@ const ApplicationFormPage = () => {
     history.goBack();
   };
 
-  const getTrips = () => {
-    axios
-      .get(`${BASE_URL}/trips`)
-      .then((response) => {
-        setListTrips(response.data.trips);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getTrips();
-  }, []);
-
   return (
     <div>
       <h1>Inscreva-se para uma viagem</h1>
       <form onSubmit={cadastrar}>
         <select value={form.trip} required name={"trip"} onChange={onChange}>
           <option value={""}>Selecione a viagem:</option>
-          {listTrips.map((t) => {
+          {listTrips?.trips.map((t) => {
             return (
               <option value={t.id} key={t.id}>
                 {t.name} {t.planet}
